@@ -1,0 +1,377 @@
+/* Empty. Add your own CSS if you like */
+*{
+	padding: 0;
+	margin: 0;
+}
+a{
+	text-decoration:none;
+}
+.popup-container .popup{
+	width: 80px;
+}
+.popup-head,.popup-buttons{
+	display: none;
+}
+.popup-body {
+  background: #ccc;
+}
+.ion-navicon:before {
+    content: ' ';
+}
+.button:after {
+	background: url(../img/persion.png) no-repeat;
+	background-size: 32px 32px;
+	top: 0px;
+	left: 15px;
+}
+.bar-stable .button {
+	width:200px;
+}
+.bar {
+	height: 120px;
+	border-bottom:none;
+}
+.bar.bar-stable {
+	background-image: none;
+	background: none;
+}
+.bar .title {
+	margin: 0 0;
+}
+.left-buttons + .title{
+	background-color: #e8443c;
+}
+.position {
+    border-bottom: 1px #ccc solid;
+    width: 100%;
+    height: 70px;
+    margin-left: 20px;
+}
+.position .persion_pic {
+	width: 50px;
+	float: left;
+	margin-top: 8px;
+	
+}
+.position .persion_info {
+	float: left;
+	margin-top: 20px;
+}
+.position .persion_info span {
+	display: block;
+	margin-left: 34px;
+	font-size: 16px;
+}
+.position .persion_info span:last-child{
+	font-size: 12px;
+	color: #939191;
+}
+.position .last_login_time {
+	clear: both;
+	font-size: 12px;
+	border-bottom: 1px #ccc solid;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	padding-top: 5px;
+}
+/*.menu {
+	background:#888;
+}*/
+.info {
+	border-bottom: 1px #ccc solid;
+	height: 65px;
+}
+.position .depart_phone {
+	width:100%;
+	margin-top: 10px;
+}
+.position .depart_phone:last-child span {
+	margin-bottom:10px; 
+}
+.depart_phone img {
+	margin-top: 0;
+	vertical-align: middle;
+	width: 20px;
+}
+.depart_phone span {
+	margin-left: 60px;
+	font-size: 16px;
+}
+.position .info:last-child{
+	border-bottom: none;
+}
+.app_list {
+	float:left;
+	width: 100%;
+	margin-top: 204px;
+}
+.app_list ul{
+	width:100%;
+}
+.app_list ul dl{
+	margin-bottom: 0;
+}
+.app_list ul li {
+	width: 100%;
+	padding: 40px 0 25px;	
+}
+.app_list ul a{
+	width: 20%;
+	height: 225px;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-top: none;
+	border-left: none;
+	position: relative;
+}
+.app_list ul a:nth-child(5n) li {
+	border-right: none;
+}
+.app_list  dl dt img{
+	width:135px;
+	height:135px;
+	border-radius: 100%;
+}
+.app_list  dl dd span {
+	color: #000;
+}
+.new_app {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.2);
+	position: absolute;
+	top: 0;
+	z-index: 999;
+}
+.new_app dl {
+	position: relative;
+	z-index: 2;
+}
+.new_app span {
+	color: #fff;
+	position: absolute;
+	top: 100px;
+	left: 75px;
+}
+dt, dd {
+	line-height: 2.12857;
+}
+@media only screen and (min-width: 640px){
+	.weather {
+		background: #e8443c;
+		z-index: 2;
+		position: absolute;
+		top: 43px;
+		width: 100%;
+		color: #fff;
+		display:-webkit-box;
+		padding-top: 43px;
+		height: 225px;
+	}
+	.current_weather {
+		display: none;
+	}
+	.weather .today_weather dl+div p:first-child{
+		font-size:28px;
+		font-weight: 700;
+		margin-bottom: 25px; 
+	}
+	.weather .today_weather dl+div p:nth-child(2){
+		font-size: 20px;
+	}
+	.weather .today_weather dl+div p:last-child{
+		font-size: 20px;
+	}
+	.weather .today_weather dl+div .pm_class{
+		background: #4d4d4d;
+		width: 50px;
+		border-radius: 3px;
+		text-align: center;
+		margin-top: 45px;
+	}
+	.weather .today_weather dl {
+		width: 240px;
+		height: 175px;
+		text-align: center;
+		float:left;
+	}
+	.weather .today_weather dl dd{
+		font-size: 20px;
+		font-weight: 700;
+	}
+	.weather .today_weather dl dt img{
+		width: 115px;
+		height: 115px;
+	}
+	.weather .today_weather dl+div {
+		width: 120px;
+		display: inline-block;
+	}
+	.weather .future_weather{
+		-webkit-box-flex:1;
+	}
+	.weather .future_weather ul{
+		width:100%;
+		display:-webkit-box;
+	}
+	.weather .future_weather ul li{
+		-webkit-box-flex: 1;
+		text-align: center;
+		border-right: 1px #fff solid;
+	}
+	.weather .future_weather ul li img{
+		margin-bottom: 10px;
+		margin-top:5px;
+	}
+	.weather .future_weather ul li:last-child{
+		border-right:none;
+	}
+	.weather .future_weather ul li img{
+		width: 58px;
+		height: 58px;
+	}
+}
+.logo {
+	width: 84px;
+	height: 76px;
+	background: url(../img/logo.png) no-repeat;
+	background-size: 84px 76px;
+	margin: 160px auto;
+	margin-bottom: 0;
+}
+.login {
+	width: 300px;
+	margin: 30px auto;
+	margin-bottom: 44px;
+}
+.login_bg {
+	background: url(../img/login_bg2.png) repeat-x;
+	background-size: 100% 100%;
+	z-index: 10;
+}
+.login_bg .has-header {
+	top: 0;
+}
+.login input:first-child {
+	margin-bottom: 25px;
+	background: url(../img/user_name.png) no-repeat left 10px center;
+	background-size: 15px 24px;
+	background-color: #fff;
+	padding-left: 35px;
+}
+.login input:last-child{
+	background: url(../img/password.png) no-repeat left 10px center;
+	background-size: 15px 24px;
+	background-color: #fff;
+	padding-left: 35px;
+}
+.login input {
+	width: 100%;
+	/*height: 48px\9;*/
+	text-transform: none;
+	font-size: 18px;
+	color: #ccc;
+	border-radius: 8px;
+	padding-left: 20px;
+	padding-top: 3px;
+	height:48px;
+}
+.login input:focus{
+	background-color: #e5f8fe;
+    border: 1px solid #12c1f6;
+    color: #60D5F6;
+}
+.login_btn {
+	width: 300px;
+	height: 48px;
+	margin: 0 auto;
+}
+.login_btn input {
+	width: 100%;
+	height:100%;
+	border-radius: 8px;
+	border: none;
+    color: #FF365D;
+    font-size: 18px;
+}
+.active_but{
+	background: #fff;
+}
+@media only screen and (max-width: 640px){
+	.app_list {
+		margin-top: 115px;
+        padding:0;
+	}
+	.app_list ul a {
+		width: 33.33%;
+		height: 142px;
+		display: block;
+		float: left;
+	}
+	.app_list ul a:nth-child(3n) li {
+		border-right: none;
+	}
+	.app_list ul li {
+		padding: 0;
+        padding-top: 15px;
+	}
+	.app_list  dl dt img {
+		width: 85px;
+		height: 85px;
+	}
+	.new_app span {
+		top: 50px;
+		left: 30px;
+	}
+	.weather {
+		background: #e8443c;
+		z-index: 2;
+		position: absolute;
+		top: 43px;
+		width: 100%;
+		color: #fff;
+		display:-webkit-box;
+		padding-top: 43px;
+		height: 135px;
+	}
+	.weather .future_weather,.today_weather{
+		display:none;
+	}
+	.weather .current_weather dl {
+		width: 90px;
+		height: 135px;
+		text-align: center;
+		float: left;
+	}.weather .current_weather dl dt img {
+		width: 58px;
+		height: 58px;
+	}
+	.weather .current_weather dl+div {
+		width: 220px;
+		display: inline-block;
+	}
+	.weather .current_weather {
+		-webkit-box-flex: 1;
+	}
+	.weather .current_weather ul {
+		width: 100%;
+		display: -webkit-box;
+	}
+	.weather .current_weather dl+div .pm_class {
+		background: #4d4d4d;
+		width: 50px;
+		border-radius: 3px;
+		text-align: center;
+	}
+	.weather .current_weather ul li {
+		-webkit-box-flex: 1;
+	}
+	.weather .current_weather ul li:last-child{
+		padding-left: 58px;
+	}
+	.weather .current_weather ul li p:nth-child(2){
+		margin-top: 25px;
+	}
+}

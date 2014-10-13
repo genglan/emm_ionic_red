@@ -1,0 +1,13 @@
+<ion-view ng-controller="LoginCtrl" class="login_bg">
+	<ion-content>
+		<div class="logo"></div>
+		<div class="login">
+			<input id="userName" type="text" ng-model="user.userName" placeholder="用户名" autocapitalize="off"/>
+			<input id="userPwd" type="password" ng-model="user.password" placeholder="密码" style="ime-mode:disabled" autocapitalize="off" />
+		</div>
+		<div class="login_btn" >
+			<input type="button" ng-class="{'active_but':''!=user.userName &&''!=user.password}" ng-show="''!=user.userName &&''!=user.password" value="登录" ng-click="login(user)">
+			<input type="button" ng-show="''==user.userName ||''==user.password" value="登录">
+		</div>
+	</ion-content>
+</ion-view>

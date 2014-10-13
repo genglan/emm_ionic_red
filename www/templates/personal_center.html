@@ -1,0 +1,105 @@
+<ion-side-menus>
+
+  <ion-pane ion-side-menu-content>
+    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+      <!-- <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button> -->
+    </ion-nav-bar>
+    <div class="weather">
+        <div class="today_weather">
+            <dl>
+              <dt><img src="img/weather_2.png"></dt>
+              <dd>中雨</dd>
+            </dl>
+            <div>
+                <p>北京</p>
+                <p>
+                  <span>22℃</span>/<span>16℃</span>
+                </p>
+                <p class="pm_class">PM2.5</p>
+                <p>220</p>
+            </div>
+        </div>
+        <div class="future_weather">
+            <ul>
+              <li>
+                  <p>周二</p>
+                  <img src="img/weather_1.png">
+                  <p><span>22℃</span>/<span>16℃</span></p>
+                  <p>晴</p>
+              </li>
+              <li>
+                  <p>周三</p>
+                  <img src="img/weather_1.png">
+                  <p><span>22℃</span>/<span>16℃</span></p>
+                  <p>晴</p>
+              </li>
+              <li>
+                  <p>周四</p>
+                  <img src="img/weather_1.png">
+                  <p><span>22℃</span>/<span>16℃</span></p>
+                  <p>晴</p>
+              </li>
+              <li>
+                  <p>周五</p>
+                  <img src="img/weather_1.png">
+                  <p><span>22℃</span>/<span>16℃</span></p>
+                  <p>晴</p>
+              </li>
+            </ul>
+        </div>
+        <div class="current_weather">
+            <dl>
+              <dt><img src="img/weather_2.png"></dt>
+            </dl>
+            <div>
+              <ul>
+                <li>
+                  <p><span>北京</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>22℃/16℃</span></p>
+                  <p>晴转阵雨</p>
+                  </li>
+                <li>
+                  <p class="pm_class">PM2.5</p>
+                  <p>220</p>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    <ion-nav-view name="menuContent" animation="slide-left-right">
+    </ion-nav-view>
+  </ion-pane>
+
+  <ion-side-menu side="left">
+    <header class="bar bar-header bar-stable">
+      <h1 class="title"></h1>
+      <div class="position">
+           <img class="persion_pic" src="img/persion.png" />
+           <div class="persion_info">
+              <span>{{name}}</span>
+              <span>客户经理</span>
+           </div>
+          <div class="last_login_time">上次登录时间：2014.9.22</div>
+          <div class="info">
+              <div class="depart_phone">
+                  <img src="img/ionic.png" />
+                  <span>营销一部</span>
+              </div>
+              <div class="depart_phone">
+                  <img src="img/ionic.png" />
+                  <span>0977843</span>
+              </div>
+          </div>
+          <div class="info">
+              <div class="depart_phone">
+                  <img src="img/ionic.png" />
+                  <span>{{phone}}</span>
+              </div>
+              <div class="depart_phone">
+                  <img src="img/ionic.png" />
+                  <span>电子邮件</span>
+              </div>
+          </div>
+      </div>
+    </header>
+  </ion-side-menu>
+</ion-side-menus>
