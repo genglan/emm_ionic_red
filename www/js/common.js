@@ -3,14 +3,13 @@ var XIAO_URL = "http://218.247.15.103/hxlife/interface/api/v1";
 var PRODUCT_URL = "http://218.247.15.103/hxlife/greeniInterface/api/v1/channel/";
 var WEATHER_URL = "http://218.247.15.103:8080/weatherinterface/";
 var storage = window.localStorage;
-<<<<<<< HEAD
-=======
-var modelType = '';
->>>>>>> FETCH_HEAD
 //登录
 function loginFun ($scope,$http,$state,user){
    if("" == user.userName||"" == user.password){
-      alert("用户名密码错误！")
+      $ionicPopup.alert({
+         title: '登录失败',
+         template: '用户名或密码不能为空'
+      });
    }else{
       var successPopup = $ionicPopup.show({ 
         content:'loading...'

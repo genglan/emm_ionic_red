@@ -1,23 +1,7 @@
 angular.module('starter.controllers', [])
 //登录
-<<<<<<< HEAD
 .controller('LoginCtrl',function ($scope,$http,$state){
-    $scope.user = {
-=======
-.controller('LoginCtrl',function ($scope,$http,$state,$timeout){
-    $timeout(function(){
-        currentDeviceModel("", function (obj){             
-          if('pad' == obj){
-            modelType = '2';
-          }else{
-            modelType = '1';
-          }
-        }, function (){
-          console.log("获取设备失败！")
-        })
-    },500);
 	$scope.user = {
->>>>>>> FETCH_HEAD
 		'userName': "8611018517",
 		'password': "195788"
 	}
@@ -29,7 +13,6 @@ angular.module('starter.controllers', [])
 })
 //个人中心
 .controller('PersonalCtrl', function($scope) {
-    alert(modelType)
 	$scope.name = storage.name ; 
     $scope.phone = storage.phone ; 	
 })
@@ -73,10 +56,8 @@ angular.module('starter.controllers', [])
         	}else if('WEBSERVICE' == $scope.objData.codeStyleText){//打开WEBSERVICE应用
         		openNativeApp($scope.objData.appId);
         	}else{//打开SERVICE
-                alert("打不开的！")
+              console.log('目前没有service应用！');
         	}
-        }else{//删除
-            alert("删除应用！")
         }
 	}
 })
