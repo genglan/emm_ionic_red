@@ -1,10 +1,7 @@
-var API_URL = "http://10.0.17.110:8080/emm_backend/v1";
-var XIAO_URL = "http://218.247.15.103/hxlife/interface/api/v1"; 
-var PRODUCT_URL = "http://218.247.15.103/hxlife/greeniInterface/api/v1/channel/";
-var WEATHER_URL = "http://218.247.15.103:8080/weatherinterface/";
+var API_URL = "http://192.168.7.144:7001/emm_backend/app/v1";
 var storage = window.localStorage;
 //登录
-function loginFun ($scope,$http,$state,user){
+function loginFun ($scope,$http,$state,user,$ionicPopup){
    if("" == user.userName||"" == user.password){
       $ionicPopup.alert({
          title: '登录失败',
@@ -73,45 +70,48 @@ function loadAppInfo($scope,$http,appId){
 }
 //查询应用
 function loadApp($scope,$http,$compile){
-  if(navigator.onLine){//检测当前设备是否有网 如果有网查询服务器
     var modelType = platform == 'pad'?'2':'1';
     var osId = '1';
     if(brows().android){
-        osId = 2;   
+        osId = 2;
     }
-    //查询所有应用
-    $http.get(API_URL+'/appStore/getList.json?modelType='+modelType+'&osId='+osId)
-    .success(function( obj ){
-      if(0 == obj.status.code){
-        var data = obj.dataList;
-        $scope.all_app = data;
-        checkApp(0,data,"",$scope,$compile);
-      }
-    })
-    .error(function(){
-      console.log("网络连接错误");
-    })
-  }else{//否则查询本地
-    var appStr = "";
-    var json = {
-        "databaseName":"AppDatabase",
-        "tableName": "app_info"
-    };
-    queryAllTableData(json,function(data){
-      if（data.length >0）{
-         $scope.all_app = data;
-          for(var i =0; i<data.length ;i++){
-            var picSrc = data[i].icon?obj.icon:'img/show.png';
-            appStr+="<a ng-click='downloadOrUpdate("+i+")'><li><dl><dt><img src='"+picSrc+"' /></dt><dd><span>"+obj.appName+"</span></dd></dl></li><input type='hidden' id='"+obj.appId+"state' value='3'></a>";
-          }
-        var txt = $compile(appStr)($scope);
-        var el = document.getElementById("app_list_ul");
-        angular.element(el).html('').append(txt);
-      }
-    },function （）{
-      console.log('查询本地失败！');
-    });
-  } 
+    if(navigator.onLine){//检测当前设备是否有网 如果有网查询服务器
+        //查询所有应用
+        $http.get(API_URL+'/appStore/getList.json?modelType='+modelType+'&osId='+osId)
+        .success(function( obj ){
+                 if(0 == obj.status.code){
+                 var data = obj.dataList;
+                 $scope.all_app = data;
+                 checkApp(0,data,"",$scope,$compile);
+                 }
+                 })
+        .error(function(){
+               console.log("网络连接错误");
+        })
+    }else{
+        var appStr = "";
+        var json = {
+            "databaseName":"AppDatabase",
+            "tableName": "app_info"
+        }
+        queryAllTableData(json,function(data){
+            $scope.all_app = data
+            if(data.length >0){
+                for(var i=0 ;i<data.length;i++){
+                    var picSrc = data[i].icon?obj.icon:'../img/show.png';
+                    appStr+="<a ng-click='downloadOrUpdate("+i+")'>"+
+                                "<li><dl><dt><img src='"+picSrc+"' /></dt><dd><span>"+obj.appName+"</span></dd></dl></li>"+
+                                "<input type='hidden' id='"+obj.appId+"state' value='3'>"+
+                            "</a>";
+                }
+            }
+            var txt = $compile(appStr)($scope);
+            var el = document.getElementById("app_list_ul");
+            angular.element(el).html('').append(txt);
+        },function(){
+           console.log('查询本地失败！');
+        })
+    }
 }
 //判断app的状态
 function checkApp(i,d,appStr,$scope,$compile){
@@ -123,7 +123,7 @@ function checkApp(i,d,appStr,$scope,$compile){
       "conditions": {"appId":obj.appId}
   };
   queryTableDataByConditions(json,function(data){
-    var picSrc = obj.icon?obj.icon:'img/show.png';
+    var picSrc = obj.icon?obj.icon:'../img/show.png';
     if('3' == flag){//已经关闭的 删除本地数据以及文件
         if(data.length>0){
            appStr+="<a ng-click='deleteApp("+i+")'><li><dl><dt><img src='"+picSrc+"' /></dt><dd><span>"+obj.appName+"</span></dd></dl></li><li  class='new_app'><span>删除应用</span></li>"; 
@@ -157,7 +157,7 @@ function checkApp(i,d,appStr,$scope,$compile){
 function openNativeApp(appid){
   //根据频道ID查询菜单
   var serviceType = "LOCAL";
-  var url = "promodel/"+appid+"/www/index.html#"+appid;
+  var url = "promodel/"+appid+"/www/index.html#"+appid+"/"+platform;
   var menuJson ={
       "databaseName":"AppDatabase",
       "tableName": "app_menu",

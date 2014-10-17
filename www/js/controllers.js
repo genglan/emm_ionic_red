@@ -1,14 +1,14 @@
 angular.module('starter.controllers', [])
 //登录
-.controller('LoginCtrl',function ($scope,$http,$state){
+.controller('LoginCtrl',function($scope,$http,$state,$ionicPopup){
 	$scope.user = {
 		'userName': "8611018517",
 		'password': "195788"
 	}
 	//登录
 	$scope.login =function (user){
-		//loginFun ($scope,$http,$state,user);
-        $state.go('app.home_page');
+		loginFun ($scope,$http,$state,user,$ionicPopup);
+        //$state.go('app.home_page');
     }
 })
 //个人中心
