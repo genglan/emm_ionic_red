@@ -1,4 +1,4 @@
-var API_URL = "http://192.168.7.144:7001/emm_backend/app/v1";
+var API_URL = "http://218.247.15.103/emm_backend/app/v1";
 var storage = window.localStorage;
 //登录
 function loginFun ($scope,$http,$state,user,$ionicPopup){
@@ -157,7 +157,7 @@ function checkApp(i,d,appStr,$scope,$compile){
 function openNativeApp(appid){
   //根据频道ID查询菜单
   var serviceType = "LOCAL";
-  var url = "promodel/"+appid+"/www/index.html#"+appid+"/"+platform;
+  var url = "promodel/"+appid+"/www/index.html?pctype="+platform+"&proid="+appid;
   var menuJson ={
       "databaseName":"AppDatabase",
       "tableName": "app_menu",

@@ -1,4 +1,51 @@
 
+
+/**   ========================= 控制界面横屏   ====================== */
+/**
+ *  @brief   
+ *
+ *  @param  success_callback    成功回调
+ *  @param  failed_callback"    失败回调
+ *
+ *  @return 成功返回1  失败返回0
+ */
+
+function setScreenLandscape(key, success_callback, failed_callback) {
+	//ios
+    if(brows().iphone) {
+    	
+        cordova.exec(success_callback, failed_callback, "ScreenOrientationPlugin", "landscape", [key]);
+    }
+    // Android
+    else if(brows().android) {
+    	
+        return cordova.exec(success_callback, failed_callback, "ScreenOrientationPlugin", "landscape", key);
+    }
+}
+
+/**   ========================= 控制界面竖屏   ====================== */
+/**
+ *  @brief   
+ *
+ *  @param  success_callback    成功回调
+ *  @param  failed_callback"    失败回调
+ *
+ *  @return 成功返回1  失败返回0
+ */
+
+function setScreenPortrait(key, success_callback, failed_callback) {
+	//ios
+    if(brows().iphone) {
+    	
+        cordova.exec(success_callback, failed_callback, "ScreenOrientationPlugin", "portrait", [key]);
+    }
+    // Android
+    else if(brows().android) {
+    	
+        return cordova.exec(success_callback, failed_callback, "ScreenOrientationPlugin", "portrait", key);
+    }
+}
+
 /**   ========================= 删除目录下所有的文件   ====================== */
 /**
  *  @brief   文件地址
@@ -10,14 +57,14 @@
  */
 
 function deleteFilePath(key, success_callback, failed_callback) {
-    //ios
+	//ios
     if(brows().iphone) {
-        
+    	
         cordova.exec(success_callback, failed_callback, "DeleteAllFilePlugin", "deleteFilePath", [key]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "DeleteAllFilePlugin", "deleteFilePath", key);
     }
 }
@@ -33,14 +80,14 @@ function deleteFilePath(key, success_callback, failed_callback) {
  */
 
 function currentDeviceModel(key, success_callback, failed_callback) {
-    //ios
+	//ios
     if(brows().iphone) {
         
         cordova.exec(success_callback, failed_callback, "DeviceModelPlugin", "currentDeviceModel", [key]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "DeviceModelPlugin", "currentDeviceModel", key);
     }
 }
@@ -56,14 +103,14 @@ function currentDeviceModel(key, success_callback, failed_callback) {
  */
 
 function uploadProfilePhoto(key, success_callback, failed_callback) {
-    //ios
+	//ios
     if(brows().iphone) {
         
         cordova.exec(success_callback, failed_callback, "UploadPlugin", "uploadProfilePhoto", [key]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "UploadPlugin", "uploadProfilePhoto", key);
     }
 }
@@ -86,7 +133,7 @@ function beginSendingMessage(key, success_callback, failed_callback) {
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "NQCommonPlugin", "beginSendingMessage", key);
     }
 }
@@ -108,7 +155,7 @@ function endSendingMessage(key, success_callback, failed_callback) {
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "NQCommonPlugin", "endSendingMessage", key);
     }
 }
@@ -131,7 +178,7 @@ function sendMessage(key, success_callback, failed_callback) {
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "ContactsPlugin", "sendMessage", key);
     }
 }
@@ -154,7 +201,7 @@ function callNumber(key, success_callback, failed_callback) {
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "ContactsPlugin", "callNumber", key);
     }
 }
@@ -178,7 +225,7 @@ function pushToViewController(key, success_callback, failed_callback) {
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "ViewControllerPlugin", "pushToViewController", key);
     }
 }
@@ -201,7 +248,7 @@ function pushToWebViewController(key, success_callback, failed_callback) {
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "ViewControllerPlugin", "loadWebView", key);
         
     }
@@ -217,13 +264,13 @@ function pushToWebViewController(key, success_callback, failed_callback) {
  *  @return 成功返回iPad/iPhone  失败返回0
  */
 function userLogout(key, success_callback, failed_callback) {
-    //ios
+	//ios
     if(brows().iphone) {
         cordova.exec(success_callback, failed_callback, "XMPPPushPlugin", "logOffXMPP", [key]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "XMPPPushPlugin", "logOffXMPP", key);
     }
 }
@@ -238,14 +285,14 @@ function userLogout(key, success_callback, failed_callback) {
  *  @return 成功返回1  失败返回0
  */
 function userLogin(key, success_callback, failed_callback) {
-    //ios
+	//ios
     if(brows().iphone) {
-        
+    	
         cordova.exec(success_callback, failed_callback, "XMPPPushPlugin", "registerXMPP", [key]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "XMPPPushPlugin", "registerXMPP", key);
     }
 }
@@ -264,14 +311,14 @@ function userLogin(key, success_callback, failed_callback) {
 
 function openApp(schemeUrl, params, success_callback, failed_callback) {
 
-    //ios
+	//ios
     if(brows().iphone) {
         
         cordova.exec(success_callback, failed_callback, "NQCommonPlugin", "openApp", [schemeUrl, params]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "NQCommonPlugin", "openApp", [schemeUrl, params]);
     }
 }
@@ -288,14 +335,14 @@ function openApp(schemeUrl, params, success_callback, failed_callback) {
  */
 
 function canOpenApp (schemeUrl, success_callback, failed_callback) {
-    //ios
+	//ios
     if(brows().iphone) {
         
         cordova.exec(success_callback, failed_callback, "NQCommonPlugin", "canOpenApp", [schemeUrl]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return cordova.exec(success_callback, failed_callback, "NQCommonPlugin", "canOpenApp", schemeUrl);
     }
 }
@@ -314,12 +361,12 @@ function canOpenApp (schemeUrl, success_callback, failed_callback) {
 function downloadNavtiveApp (key,success_callback,failed_callback){
     // iOS
     if(brows().iphone) {
-        
+    	
         cordova.exec(success_callback,failed_callback,"DownloadPlugin","downloadNavtiveApp",[key]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return  cordova.exec(success_callback,failed_callback,"DownloadPlugin","downloadNavtiveApp",key);
     }
 }
@@ -342,7 +389,7 @@ function updateZip(key,success_callback,failed_callback){
     }
     // Android
     else if(brows().android) {
-        
+    	
         return  cordova.exec(success_callback,failed_callback,"DownloadPlugin","updateZip",key);
     }
 }
@@ -360,12 +407,12 @@ function updateZip(key,success_callback,failed_callback){
 function downloadZip(key,success_callback,failed_callback){
     // iOS
     if(brows().iphone) {
-        
+    	
         cordova.exec(success_callback,failed_callback,"DownloadPlugin","downloadZip",[key]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return  cordova.exec(success_callback,failed_callback,"DownloadPlugin","downloadZip",key);
     }
 }
@@ -389,7 +436,7 @@ function createDatabase(key,success_callback,failed_callback){
     }
     // Android
     else if(brows().android) {
-        
+    	
         return  cordova.exec(success_callback,failed_callback,"DatabasePlugin","createDatabase",key);
     }
 }
@@ -405,12 +452,12 @@ function createDatabase(key,success_callback,failed_callback){
 function deleteDatabase(key,success_callback,failed_callback) {
     // iOS
     if(brows().iphone) {
-        
+    	
         cordova.exec(success_callback,failed_callback,"DatabasePlugin","deleteDatabase",[key]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return  cordova.exec(success_callback,failed_callback,"DatabasePlugin","deleteDatabase",key);
     }
 }
@@ -432,7 +479,7 @@ function createTable(key,success_callback,failed_callback){
     }
     // Android
     else if(brows().android) {
-        
+    	
         return  cordova.exec(success_callback,failed_callback,"TablePlugin","createTable",key);
     }
 }
@@ -449,12 +496,12 @@ function createTable(key,success_callback,failed_callback){
 function deleteTable(key,success_callback,failed_callback) {
     // iOS
     if(brows().iphone) {
-        
+    	
         cordova.exec(success_callback,failed_callback,"TablePlugin","deleteTable",[key]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return  cordova.exec(success_callback,failed_callback,"TablePlugin","deleteTable",key);
     }
 }
@@ -471,12 +518,12 @@ function deleteTable(key,success_callback,failed_callback) {
 function insertTableStructure(key,success_callback,failed_callback) {
     // iOS
     if(brows().iphone) {
-        
+    	
         cordova.exec(success_callback,failed_callback,"TableStructurePlugin","insertTableStructure",[key]);
     }
     // Android
     else if(brows().android) {
-        
+    	
         return  cordova.exec(success_callback,failed_callback,"TableStructurePlugin","insertTableStructure",key);
     }
 }
