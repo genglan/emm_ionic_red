@@ -98,7 +98,7 @@ function loadApp($scope,$http,$compile){
             $scope.all_app = data
             if(data.length >0){
                 for(var i=0 ;i<data.length;i++){
-                    var picSrc = data[i].icon?obj.icon:'../img/show.png';
+                    var picSrc = data[i].icon?obj.icon:'img/show.png';
                     appStr+="<a ng-click='downloadOrUpdate("+i+")'>"+
                                 "<li><dl><dt><img src='"+picSrc+"' /></dt><dd><span>"+obj.appName+"</span></dd></dl></li>"+
                                 "<input type='hidden' id='"+obj.appId+"state' value='3'>"+
@@ -123,7 +123,7 @@ function checkApp(i,d,appStr,$scope,$compile){
       "conditions": {"appId":obj.appId}
   };
   queryTableDataByConditions(json,function(data){
-    var picSrc = obj.icon?obj.icon:'../img/show.png';
+    var picSrc = obj.icon?obj.icon:'img/show.png';
     if('3' == flag){//已经关闭的 删除本地数据以及文件
         if(data.length>0){
            appStr+="<a ng-click='deleteApp("+i+")'><li><dl><dt><img src='"+picSrc+"' /></dt><dd><span>"+obj.appName+"</span></dd></dl></li><li  class='new_app'><span>删除应用</span></li>"; 
